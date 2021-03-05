@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t sachinathu/prodex .
+
+script:
+  - docker run sachinathu/prodex npm run test -- --coverage
